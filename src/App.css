@@ -56,7 +56,11 @@ nav img {
   padding-top: 5px;
 }
 
-li {
+ul {
+  padding-left: 0%;
+}
+
+nav li {
   padding: 0px 10px;
 }
 
@@ -66,7 +70,6 @@ li::marker {
 
 a {
   font-family: 'Markazi Text';
-  font-style: bold;
   font-size: 18px;
   color: black;
   text-decoration: none;
@@ -76,7 +79,7 @@ header {
   display: flex;
   flex-direction: row;
   justify-content: center;
-  padding: 0px 15%;
+  padding: 0px 20%;
   padding-bottom: 40px;
   background-color: #495E57;
   color: white
@@ -98,7 +101,7 @@ h2 {
 
 h3 {
   font-family: 'Markazi Text';
-  font-style: bold;
+  font-weight: bold;
   font-size: 18px;
 }
 
@@ -108,9 +111,20 @@ p {
   font-size: 16px;
 }
 
+button {
+  background-color: #F4CE14;
+  border-radius: 16px;
+  border: #F4CE14;
+  width: 200px;
+  height: 60px;
+  /* font-weight: bold; */
+  font-size: 18px;
+  font-family: 'Markazi Text';
+}
+
 header img {
   width: 40%;
-  padding: 5%;
+  padding: 5% 0% 5% 5%;
   height: 40%;
   align-self: center;
 }
@@ -120,11 +134,11 @@ article {
   flex-direction: column;
   align-items: flex-start;
   margin: 0px 20px;
-  padding: 5% 15% 5% 0;
+  padding: 5% 5% 5% 0;
 }
 
 article p {
-flex-basis: 50%;
+  flex-basis: 40%;
 }
 
 h2 {
@@ -133,12 +147,12 @@ h2 {
 
 main {
   display: grid;
-  grid-template-rows: 60px auto;
-  grid-template-columns: repeat(3, 27%);
+  grid-template-rows: 80px auto;
+  grid-template-columns: repeat(3, 30%);
   grid-template-areas: "title title menu_button"
                         "left center right";
   justify-content: space-between;
-  padding: 40px 15%;
+  padding: 40px 20%;
 }
 
 .card_left{
@@ -159,12 +173,12 @@ main {
 
 .card {
   display: grid;
-  grid-template-columns: auto auto;
+  grid-template-columns: auto 50%;
   grid-template-rows: auto auto 3fr auto;
-  grid-template-areas: "photo photo"
+  grid-template-areas: "food food"
                         "title price"
                         "text text"
-                        "button button";
+                        "order bike";
   background-color: #EDEFEE;
   border-top-right-radius: 16px;
   border-top-left-radius: 16px;
@@ -177,19 +191,35 @@ main {
 
 main .button {
   grid-area: menu_button;
+  justify-self: end;
 }
 
-main button {
-  grid-area: button;
+main a {
+  grid-area: order;
+  font-family: 'Markazi Text';
+  font-weight: bold;
+  font-size: 16px;
 }
 
-.card img {
+.food_photo {
+  grid-area: food;
   width: 110%;
   position: relative;
   right: 5%;
-  grid-area: photo;
   border-top-right-radius: 16px;
   border-top-left-radius: 16px;
+}
+
+.bike {
+  grid-area: bike;
+  width: 25px;
+  align-self: end;
+}
+
+.price {
+  color: #EE9972;
+  font-weight: bold;
+  justify-self: flex-end;
 }
 
 footer {
@@ -197,5 +227,5 @@ footer {
   flex-direction: row;
   align-items: flex-start;
   justify-content: space-around;
-  padding: 0px 15%;
+  padding: 0px 20%;
 }
