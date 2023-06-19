@@ -37,7 +37,7 @@
   }
 }
 
-nav {
+.navbar {
     display: flex;
     flex-direction: row;
     align-items: center;
@@ -58,6 +58,7 @@ nav img {
 
 ul {
   padding-left: 0%;
+  margin: 0%;
 }
 
 nav li {
@@ -103,6 +104,7 @@ h3 {
   font-family: 'Markazi Text';
   font-weight: bold;
   font-size: 18px;
+  margin: 0%;
 }
 
 p {
@@ -133,7 +135,7 @@ article {
   display: flex;
   flex-direction: column;
   align-items: flex-start;
-  margin: 0px 20px;
+  margin-right: 20px;
   padding: 5% 5% 5% 0;
 }
 
@@ -182,7 +184,7 @@ main {
   background-color: #EDEFEE;
   border-top-right-radius: 16px;
   border-top-left-radius: 16px;
-  padding: 0% 5% 10% 5%;
+  padding: 0% 7% 10% 7%;
  }
 
 .title {
@@ -199,6 +201,7 @@ main a {
   font-family: 'Markazi Text';
   font-weight: bold;
   font-size: 16px;
+  align-self: center;
 }
 
 .food_photo {
@@ -222,10 +225,77 @@ main a {
   justify-self: flex-end;
 }
 
+.about {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  padding: 0px 20%;
+  background-color: #495E57;
+  color: white;
+}
+
+.about article {
+  width: 40%;
+}
+
+.wrap {
+  position: relative;
+  width: 60%;
+  /* display: flex;
+  flex-direction: row;
+  justify-items: flex-end; */
+}
+
+.img-1 {
+  width: inherit;
+  position: absolute;
+  z-index: 2;
+  right: calc(width - 65%);
+  top: 120px;
+}
+
+.img-2 {
+  width: inherit;
+  position: absolute;
+  z-index: 1;
+  right: 0px;
+  top: 45px;
+}
+
+.rating{
+  padding: 40px 20%;
+}
+
+.col {
+  display: flex;
+  flex-direction: row;
+  align-items: flex-start;
+  justify-content: space-evenly;
+  padding-top: 20px;
+}
+
+.cell {
+  width: 20%;
+  background-color: #EDEFEE;
+  padding: 15px;
+}
+
+.row {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+}
+
+.user{
+  width: 40%;
+  padding-right: 10px;
+}
+
 footer {
   display: flex;
   flex-direction: row;
   align-items: flex-start;
   justify-content: space-around;
-  padding: 0px 20%;
+  padding: 20px 20%;
 }
+

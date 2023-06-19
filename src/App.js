@@ -1,15 +1,15 @@
 import './App.css';
-import Header from "./Header.js"
-import Nav from "./Nav"
-import Main from "./Main"
-import Footer from './Footer';
+import Header from "./Components/Header.js"
+import Nav from "./Components/Nav"
+import Main from "./Components/Main"
+import Footer from './Components/Footer';
+import Homepage from './Components/Homepage';
+import Booking from './Components/Booking';
 
 function App() {
   return (
     <>
     <Nav/>
-    <Header/>
-    <Main/>
     <Footer/>
     </>
   );
