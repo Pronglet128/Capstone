@@ -5,13 +5,13 @@ const reviews = [
     {
         rating: "5",
         img: "user1.png",
-        name: "Alex",
+        name: "Lora",
         text: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus consequat, risus quis feugiat fringilla, dolor dui vestibulum lorem, non posuere lectus sem id magna. Maecenas ut nulla quis ligula efficitur pretium eu elementum mi. Donec tempor eget felis et convallis. "
     },
     {
         rating: "4",
         img: "user2.png",
-        name: "Lora",
+        name: "Alex",
         text: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. "
     },
     {

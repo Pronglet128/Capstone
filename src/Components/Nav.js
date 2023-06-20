@@ -1,11 +1,12 @@
 import React from "react";
 import {Routes, Route, Link} from 'react-router-dom';
-import Main from "./Main";
+import Menu from "./Menu";
 import About from "./About";
-import Booking from "./Booking";
+import BookingForm from "./BookingForm";
 import Order from "./Order";
 import Login from "./Login";
 import Homepage from "./Homepage";
+import BookingForm from "./BookingForm";
 
 const Nav = () => {
     return(
@@ -24,8 +25,8 @@ const Nav = () => {
         <Routes>
             <Route path="/" element={<Homepage />}></Route>
             <Route path="/about" element={<About />}></Route>
-            <Route path="/menu" element={<Main />}></Route>
-            <Route path="/reservation" element={<Booking />}></Route>
+            <Route path="/menu" element={<Menu />}></Route>
+            <Route path="/reservation" element={<BookingForm />}></Route>
             <Route path="/order" element={<Order />}></Route>
             <Route path="/login" element={<Login />}></Route>
         </Routes>
