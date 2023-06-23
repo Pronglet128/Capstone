@@ -2,7 +2,6 @@ import React from "react";
 import {Routes, Route, Link} from 'react-router-dom';
 import Menu from "./Menu";
 import About from "./About";
-import BookingForm from "./BookingForm";
 import Order from "./Order";
 import Login from "./Login";
 import Homepage from "./Homepage";

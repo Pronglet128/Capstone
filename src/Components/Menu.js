@@ -1,12 +1,12 @@
 import MenuCard from "./MenuCard";
-import data from "../MenuData";
+import allMenu from "../MenuData";
 
 const Menu=() => {
     return (
         <>
-        <h2 className="hMenu">Menu</h2>
+        <h2 className="h2_pages">Menu</h2>
                 <main className="menu">
-                    {data.map((menuData) => (
+                    {allMenu.map((menuData) => (
                         <MenuCard
                             key={menuData.key}
                             price={menuData.price}

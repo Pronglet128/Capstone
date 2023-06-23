@@ -1,6 +1,10 @@
 const Order=() => {
     return (
-        <div>a</div>
+            <>
+            <form>
+                
+            </form>
+            </>
     )
 };
 

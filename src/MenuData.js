@@ -1,4 +1,4 @@
-const data = [
+const allMenu = [
     {
         key: 0,
         img: "greek salad.jpg",
@@ -43,4 +43,4 @@ const data = [
     },
 ]
 
-export default data;
+export default allMenu;
