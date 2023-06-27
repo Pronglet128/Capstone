@@ -1,14 +1,65 @@
-import BookingPage from "../BookingPage";
+import { useState } from "react";
+import AvailableTimes from "./availableTimes";
+import AvaTimes from "./AvalTime";
+import Confirm from "./ConfirmedBooking";
+import { useNavigate } from "react-router-dom";
 
-const BookingForm=() => {
+const BookingForm=(props, {onChange}) => {
+    var moment = require('moment');
+    const [curDay, setCurDay] = useState(moment().format('YYYY-MM-DD'))
+    const [time, setTime] = useState("19:00")
+    const [guests, setGuests] = useState("2")
+    const [occasion, setOccasion] = useState("Birthday")
+
+    const submitForm = (day) => {
+        const submitAPI = (formData) => {
+            if (formData) return true;
+       };
+       if (submitAPI) {
+        navigate("/succsess");
+        <Confirm day={curDay} time={time} />}}
+
+    const navigate = useNavigate();
+
+    const handleSubmit = (event) => {
+        event.preventDefault();
+        submitForm()
+        // navigate("/succsess");
+    }
+
+    const handleChange = (event) => {
+          setCurDay(event.target.value)
+        //  onChange = event.target.value
+    }
+
+
     return (
         <>
-            <h2 className="h2_pages"> Reserve a table</h2>
-            <p className="p_pages" style={{position:"relative"}}>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus consequat, risus quis feugiat fringilla, dolor dui vestibulum lorem, non posuere lectus sem id magna. Maecenas ut nulla quis ligula efficitur pretium eu elementum mi. Donec tempor eget felis et convallis. Aenean et scelerisque est. Aenean rhoncus felis non metus facilisis, at tincidunt orci faucibus. Integer hendrerit nec nisi quis aliquam. Integer rutrum, justo semper luctus auctor.</p>
-            {/* <img className="img_booking" src="booking.jpg" alt="table" style={{position:"absolute"}} width={400}/> */}
-            <BookingPage />
-            <br style={{padding:20}}></br>
-        </>
+        <form onSubmit={handleSubmit}>
+            <label htmlFor="res-date">Choose date</label>
+            <input type="date" id="res-date" value={curDay} onChange={handleChange} />
+            <label htmlFor="res-time">Choose time</label>
+            <select id="res-time " value={time} onChange={event => setTime(event.target.value)}>
+                {<AvailableTimes/>}
+            </select>
+            <label htmlFor="guests">Number of guests</label>
+            <input
+                type="number"
+                placeholder="1"
+                min="1"
+                max="10"
+                id="guests"
+                value={guests}
+                onChange={event => setGuests(event.target.value)}
+            />
+            <label htmlFor="occasion">Occasion</label>
+            <select id="occasion" value={occasion} onChange={event => setOccasion(event.target.value)}>
+                <option>Birthday</option>
+                <option>Anniversary</option>
+            </select>
+            <input className="button" type="submit" value="Make Your reservation" />
+        </form>
+</>
     )
 };
 

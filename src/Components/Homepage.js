@@ -1,13 +1,13 @@
 import About from "./About";
 import Header from "./Header";
-import Main from "./Specials";
 import Rating from "./Rating";
+import Specials from "./Specials"
 
 const Homepage=() => {
     return (
         <>
             <Header />
-            <Main />
+            <Specials />
             <Rating />
             <About />
         </>

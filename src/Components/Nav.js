@@ -5,13 +5,14 @@ import About from "./About";
 import Order from "./Order";
 import Login from "./Login";
 import Homepage from "./Homepage";
-import BookingForm from "./BookingForm";
+import BookingPage from "./BookingPage";
+import Confirm from "./ConfirmedBooking";
 
 const Nav = () => {
     return(
     <nav>
         <div className="navbar">
-            <img src="Screenshot_2.png" alt="logo"/>
+            <Link to="/"><img src="Screenshot_2.png" alt="logo"/></Link>
             <ul>
                 <li><Link to="/">Home</Link></li>
                 <li><Link to="/about">About</Link></li>
@@ -25,9 +26,10 @@ const Nav = () => {
             <Route path="/" element={<Homepage />}></Route>
             <Route path="/about" element={<About />}></Route>
             <Route path="/menu" element={<Menu />}></Route>
-            <Route path="/reservation" element={<BookingForm />}></Route>
+            <Route path="/reservation" element={<BookingPage />}></Route>
             <Route path="/order" element={<Order />}></Route>
             <Route path="/login" element={<Login />}></Route>
+            <Route path="/succsess" element={<Confirm />}></Route>
         </Routes>
     </nav>
     )
