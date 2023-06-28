@@ -4,12 +4,13 @@ import AvaTimes from "./AvalTime";
 import Confirm from "./ConfirmedBooking";
 import { useNavigate } from "react-router-dom";
 
-const BookingForm=(props, {onChange}) => {
+const BookingForm=() => {
     var moment = require('moment');
+    const [name, setName] = useState("")
     const [curDay, setCurDay] = useState(moment().format('YYYY-MM-DD'))
     const [time, setTime] = useState("19:00")
     const [guests, setGuests] = useState("2")
-    const [occasion, setOccasion] = useState("Birthday")
+    const [occasion, setOccasion] = useState("Dinner")
 
     const submitForm = (day) => {
         const submitAPI = (formData) => {
@@ -17,14 +18,14 @@ const BookingForm=(props, {onChange}) => {
        };
        if (submitAPI) {
         navigate("/succsess");
-        <Confirm day={curDay} time={time} />}}
+        // <Confirm day={curDay} time={time} />
+    }}
 
     const navigate = useNavigate();
 
     const handleSubmit = (event) => {
         event.preventDefault();
         submitForm()
-        // navigate("/succsess");
     }
 
     const handleChange = (event) => {
@@ -32,10 +33,39 @@ const BookingForm=(props, {onChange}) => {
         //  onChange = event.target.value
     }
 
+    const resName = document.getElementById('res-name');
+    const resNameError = document.querySelector('#resName + span.error');
+    window.addEventListener("DOMContentLoaded", (event) => {
+        resName.addEventListener('input', function (event) {
+            if (resName.validity.valid) {
+                resNameError.textContent = '';
+            } else {
+                showError();
+            }
+        });
+
+    function showError() {
+        if(resName.validity.valueMissing) {
+            resNameError.textContent = 'You need to enter a name.';
+        } else if(resName.validity.tooShort) {
+            resNameError.textContent = `Name should be at least ${ name.minLength } characters; you entered ${ name.value.length }.`;
+        }
+    }
+    });
 
     return (
         <>
         <form onSubmit={handleSubmit}>
+            <label htmlFor="res-name">Enter your name*</label>
+            <input
+                type="text"
+                id="res-name"
+                value={name}
+                onChange={event => setName(event.target.value)}
+                required
+                minLength="3"
+                maxLength="24"
+                placeholder="Your name"/>
             <label htmlFor="res-date">Choose date</label>
             <input type="date" id="res-date" value={curDay} onChange={handleChange} />
             <label htmlFor="res-time">Choose time</label>
@@ -54,6 +84,7 @@ const BookingForm=(props, {onChange}) => {
             />
             <label htmlFor="occasion">Occasion</label>
             <select id="occasion" value={occasion} onChange={event => setOccasion(event.target.value)}>
+                <option>Dinner</option>
                 <option>Birthday</option>
                 <option>Anniversary</option>
             </select>
