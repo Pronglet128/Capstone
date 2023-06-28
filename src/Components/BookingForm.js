@@ -69,8 +69,8 @@ const BookingForm=() => {
             <label htmlFor="res-date">Choose date</label>
             <input type="date" id="res-date" value={curDay} onChange={handleChange} />
             <label htmlFor="res-time">Choose time</label>
-            <select id="res-time " value={time} onChange={event => setTime(event.target.value)}>
-                {<AvailableTimes/>}
+            <select id="res-time" value={time} onChange={event => setTime(event.target.value)}>
+                {<AvailableTimes id="res-time"/> }
             </select>
             <label htmlFor="guests">Number of guests</label>
             <input
@@ -88,7 +88,7 @@ const BookingForm=() => {
                 <option>Birthday</option>
                 <option>Anniversary</option>
             </select>
-            <input className="button" type="submit" value="Make Your reservation" />
+            <input className="button" type="submit" value="Make Your reservation" aria-label="Press to confirm your reservation"/>
         </form>
 </>
     )
