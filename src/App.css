@@ -44,32 +44,80 @@
     justify-content: center;
   }
 
-@media(min-width: 900px) {
+@media(min-width: 1001px) {
   nav ul {
     display: flex;
     flex-direction: row;
     justify-content: space-between;
+    align-items: center;
   }
 }
 
 nav img {
   padding-top: 5px;
 }
-
-ul {
-  padding-left: 0%;
-  margin: 0%;
+.nav-smol {
+  display: none;
 }
 
- li {
-  padding: 0px 10px;
+@media (max-width: 650px) {
+  .nav-logo {
+    display: none;
+  }
+  .nav-smol {
+    display: block;
+  }
+}
+
+ul {
+  display: flex;
+  flex-direction: column;
+  flex-wrap: nowrap;
+  height: 40px;
+  padding-left: 0%;
+  margin: 0%;
+  background-color: white;
+  width: 40%;
+}
+
+@media(max-width: 1000px) {
+  .burger_li {
+    padding: 0px 10px;
+    flex-wrap: nowrap;
+    z-index: 999999;
+  }
+  .dektop_li {
+    display: none;
+  }
+  ul {
+    width: 20%;
+  }
+}
+
+@media(max-width: 500px) {
+  ul {
+    width: 40%;
+  }
+}
+
+li {
   font-family: 'Markazi Text';
   font-size: 18px;
   color: black;
+  background-color: white;
+  padding: 2px 2%;
+  width: auto;
 }
 
 li::marker {
   content: none;
+}
+
+@media(min-width: 1001px) {
+  .burger_menu,
+  .burger_li {
+    display: none;
+  }
 }
 
 a {
@@ -84,9 +132,8 @@ header {
   flex-direction: row;
   justify-content: center;
   padding: 0px 20%;
-  padding-bottom: 40px;
   background-color: #495E57;
-  color: white
+  color: white;
 }
 
 h1 {
@@ -107,6 +154,8 @@ h3 {
   font-family: 'Markazi Text';
   font-weight: bold;
   font-size: 18px;
+  margin: 0%;
+  align-self: center;
 }
 
 p {
@@ -129,8 +178,7 @@ p {
 
 header img {
   width: 40%;
-  padding: 5% 0% 5% 5%;
-  height: 40%;
+  padding: 5% 0;
   align-self: center;
 }
 
@@ -138,12 +186,50 @@ article {
   display: flex;
   flex-direction: column;
   align-items: flex-start;
-  margin-right: 20px;
-  padding: 5% 5% 5% 0;
+  margin-right: 30px;
+  padding: 5% 0 5% 0;
 }
 
 article p {
   flex-basis: 40%;
+}
+
+@media(max-width: 1150px) {
+  header img {
+    width: 50%;
+  }
+}
+
+@media(max-width: 850px) {
+  header {
+    display: inline-flex;
+    flex-direction: column;
+    position: relative;
+  }
+  header img {
+    width: 25%;
+    align-self: flex-end;
+    position: absolute;
+    top: 15%;
+  }
+  article p {
+    width: 50%;
+  }
+  h1 {
+    font-size: 48px;
+  }
+  article h2 {
+    font-size: 24px;
+  }
+}
+
+@media(max-width: 500px) {
+  article p {
+    width: 100%;
+  }
+  header img {
+  display: none;
+  }
 }
 
 h2 {
@@ -174,13 +260,14 @@ main {
 
 .text {
   grid-area: text;
+  margin-top: 0%;
 }
 
 .card {
   height: 90%;
   display: grid;
-  grid-template-columns: auto 50%;
-  grid-template-rows: auto auto 3fr auto;
+  grid-template-columns: 2fr 1fr;
+  grid-template-rows: auto 1fr 2fr auto;
   grid-template-areas: "food food"
                         "title price"
                         "text text"
@@ -228,6 +315,36 @@ main .button {
   color: #EE9972;
   font-weight: bold;
   justify-self: flex-end;
+  align-self: center;
+}
+
+@media(max-width: 850px) {
+  main {
+    display: grid;
+    grid-template-rows: 80px auto auto;
+    grid-template-columns: repeat(2, 47%);
+    grid-template-areas: "title menu_button"
+                          "left center"
+                          "right null";
+    justify-content: space-between;
+    padding: 40px 20%;
+  }
+  .title {
+    font-size: 36px;
+  }
+}
+
+@media(max-width: 550px) {
+  main {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    padding: 40px 20%;
+    gap: 20px;
+  }
+  .cell img {
+    width: 25px;
+  }
 }
 
 .about {
@@ -240,7 +357,7 @@ main .button {
 }
 
 .about article {
-  width: 40%;
+  width: 50%;
 }
 
 .wrap {
@@ -267,6 +384,62 @@ main .button {
   top: 45px;
 }
 
+@media (max-width: 1360px) {
+  .about h1 {
+    width: 150%;
+  }
+}
+
+@media (max-width: 1000px) {
+  .wrap {
+    position: unset;
+    width: 50%;
+    display: flex;
+    flex-direction: column;
+    justify-items: flex-end;
+    padding: 5% 0 5% 0;
+    gap: 5px;
+  }
+  .img-1 {
+    width: 100%;
+    position: unset;
+  }
+  .img-2 {
+    width: 100%;
+    position: unset;
+  }
+  .about article {
+    width: 50%;
+    padding: 5% 0 5% 0;
+  }
+  .about p {
+    width: 100%;
+  }
+  .about h1 {
+    width: 100%;
+  }
+}
+@media (max-width: 700px) {
+  .wrap {
+    padding-top: 7%;
+    gap: 5%
+  }
+  #no-wrap {
+    margin-top: 0%;
+    width: 200%;
+  }
+}
+
+@media (max-width: 550px) {
+.about h1 {
+  width: 200%;
+}
+.wrap {
+  padding-top: 22%;
+  gap: 2%
+}
+}
+
 .rating{
   padding: 40px 20%;
   background-color: #EDEFEE;
@@ -284,6 +457,42 @@ main .button {
   width: 20%;
   background-color: white;
   padding: 15px;
+}
+
+@media (max-width: 1050px) {
+  .col {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    gap: 5px;
+    align-items: flex-start;
+    justify-content: space-evenly;
+    padding-top: 20px;
+    width: 100%;
+  }
+  .cell {
+    width: 40%;
+    background-color: white;
+    padding: 15px;
+  }
+}
+
+@media (max-width: 550px) {
+  .col {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    gap: 5px;
+    align-items: flex-start;
+    justify-content: space-evenly;
+    padding-top: 20px;
+    width: 100%;
+  }
+  .cell {
+    width: 80%;
+    background-color: white;
+    padding: 15px;
+  }
 }
 
 .row {
@@ -308,9 +517,51 @@ main .button {
 footer {
   display: flex;
   flex-direction: row;
-  align-items: flex-start;
+  align-items: center;
   justify-content: space-around;
   padding: 20px 20%;
+}
+
+footer h3 {
+  align-self: flex-start;
+  padding-bottom: 5px;
+}
+
+footer li {
+  padding: 1px 10px;
+}
+
+.smol {
+  display: none;
+}
+
+@media (max-width:800px) {
+  footer img {
+    display: none;
+  }
+  .smol {
+    display: block;
+  }
+}
+@media (max-width:500px) {
+  footer {
+    flex-wrap: wrap;
+    width: 80%;
+    height: 350px;
+    justify-content: flex-start;
+  }
+  h3 {
+    width: 30%;
+  }
+  footer ul:last-child {
+    padding-left: 36px;
+  }
+}
+@media (max-width:370px) {
+  footer {
+    height: 400px;
+  }
+
 }
 
 form {
@@ -366,4 +617,19 @@ input:invalid:focus{
 
 input:valid {
   border: 0px
+}
+
+@media (max-width: 500px) {
+  h1 {
+    font-size: 32px;
+  }
+  h2 {
+    font-size: 18px;
+  }
+  .about p {
+    width: 200%;
+  }
+  .wrap {
+    display: none;
+  }
 }

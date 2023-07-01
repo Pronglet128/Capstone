@@ -1,4 +1,5 @@
 import React from "react";
+import { Link } from "react-router-dom";
 
 const MenuCard = (props) => {
     return (
@@ -7,7 +8,7 @@ const MenuCard = (props) => {
                 <h3>{props.name}</h3>
                 <p className="price">{props.price}</p>
                 <p className="text">{props.text}</p>
-                <a href="/order" className="orderButton">Order a delivery</a>
+                <Link to="/order" className="orderButton">Order a delivery</Link>
                 <img className="bike" src="bicycle.png" alt="delivery"/>
             </div>
     )

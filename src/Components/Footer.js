@@ -5,6 +5,7 @@ const Footer = () => {
     return (
     <footer>
         <img src="Screenshot_2.png" alt="logo"/>
+        <img className="smol" src="logo_smol.png" alt="logo"/>
         <>
             <ul>
             <h3 style={{paddingLeft:10}}>Navigation</h3>
@@ -18,21 +19,21 @@ const Footer = () => {
         </>
         <>
             <ul>
+            <h3 style={{paddingLeft:10}}>Social media links</h3>
+                <li><a href="/">Facebook</a></li>
+                <li><a href="/">Instagram</a></li>
+                <li><a href="/">Twitter</a></li>
+            </ul>
+        </>
+        <>
+            <ul>
             <h3 style={{paddingLeft:10}}>Contact</h3>
                 <li>Address</li>
                 <li>Phone number</li>
                 <li>Email</li>
                 <li><br></br></li>
                 <li>Working hours:</li>
-                <li>11:00 - 22:00</li>
-            </ul>
-        </>
-        <>
-            <ul>
-            <h3 style={{paddingLeft:10}}>Social media links</h3>
-                <li><a href="/">Facebook</a></li>
-                <li><a href="/">Instagram</a></li>
-                <li><a href="/">Twitter</a></li>
+                <li>17:00 - 23:00</li>
             </ul>
         </>
     </footer>

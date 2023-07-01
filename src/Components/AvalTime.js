@@ -1,11 +1,11 @@
 import { useReducer, useState, useEffect } from "react";
 import BookingForm from "./BookingForm"
 
-const AvaTimes = (props) => {
-    const previousDay = 0
-    let currentDay = props.curDay
+const AvaTimes = () => {
 
-    const [value, setValue] = useState('')
+    let firstDay = new Date().getDate()
+
+    const [curDay, setCurDay] = useState('')
 
     const seededRandom = function (seed) {
         var m = 2**35 - 31;
@@ -17,7 +17,7 @@ const AvaTimes = (props) => {
     }
     const fetchAPI = function(date) {
         let result = [];
-        let random = seededRandom(new Date(date).getDate());
+        let random = seededRandom(date);
 
         for(let i = 17; i <= 23; i++) {
             if(random() < 0.5) {
@@ -29,34 +29,27 @@ const AvaTimes = (props) => {
         }
         return result;
     };
-    // const submitAPI = function(formData) {
-    //     return true;
-    // };
-    const initializeTimes = fetchAPI(currentDay);
+
+    const initializeTimes = fetchAPI(firstDay);
     const updateTime = (availableTimes, action) => {
-        if (action.type==="new") return availableTimes = fetchAPI(new Date(value).getDate())
+        if (action.type==="new") return availableTimes = fetchAPI(new Date(curDay).getDate())
     }
+
     const [availableTimes, dispatch] = useReducer (updateTime, initializeTimes)
 
     const handleChange = (value) => {
-        setValue(value);
+        setCurDay(value);
         dispatch({type: "new"});
       }
 
-    // if (currentDay == previousDay) {
-    //     return dispatch({type: "new"})
-    //     }
-    //     console.log(previousDay)
-    //     console.log(currentDay)
-
-    // console.log(availableTimes)
+    console.log(availableTimes)
 
     const listItems = availableTimes.map(result =>
          <option key={result}>{result}</option>)
 
     return (
          <>
-            <BookingForm onChange={handleChange}
+            <BookingForm dateChange={handleChange}
              listItems = {listItems} />
         </>
     )
